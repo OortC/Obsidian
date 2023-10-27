@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "166cd96ca8c3b418",
+            "id": "dfb5d0cc350ef867",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Circle_1/get_next_line/File Descriptor.md",
+                "file": "Circle_1/get_next_line/Static.md",
                 "mode": "source",
                 "source": false
               }
@@ -22,17 +22,17 @@
         ]
       },
       {
-        "id": "fd4383c6cf53c596",
+        "id": "44c164654e582eec",
         "type": "tabs",
         "children": [
           {
-            "id": "dfb5d0cc350ef867",
+            "id": "3add57188995f201",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Circle_1/get_next_line/File Descriptor.md",
-                "mode": "source",
+                "file": "Circle_1/get_next_line/Static.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -111,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Circle_1/get_next_line/File Descriptor.md",
+                "file": "Circle_1/get_next_line/Static.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Circle_1/get_next_line/File Descriptor.md",
+                "file": "Circle_1/get_next_line/Static.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Circle_1/get_next_line/File Descriptor.md"
+                "file": "Circle_1/get_next_line/Static.md"
               }
             }
           }
@@ -174,8 +174,13 @@
   },
   "active": "dfb5d0cc350ef867",
   "lastOpenFiles": [
+    "Circle_1/get_next_line/File Descriptor.md",
     "Circle_1/get_next_line/Static.md",
-    "Circle_1/get_next_line/젤get_next_line.md",
+    "Circle_1/get_next_line/get_next_line.md",
+    "Image/Array_L_List.png",
+    "Image/FD_TABLE.png",
+    "Image/OPEN_MAX.png",
+    "README.md",
     "Circle_0/Linked List.md"
   ]
 }
