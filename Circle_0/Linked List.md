@@ -34,8 +34,9 @@ typedef struct s_list
 } t_list;
 ```
 
-## 주요 함수
 ---
+## 주요 함수
+
 ### ft_lstnew
 
 ```c
