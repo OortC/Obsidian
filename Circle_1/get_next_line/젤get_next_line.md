@@ -129,4 +129,87 @@ temp = NULL;
 ---
 ### 3) Timeout
 
+과제를 진행하면서 가장 골머리를 앓은 부분이 바로 `timeout`을 해결하는 것이였다.
+여러 방면으로 해결하려고 노력한 결과, `malloc`의 호출 횟수를 줄이는 것이 좋은 방법이였다.
 
+`malloc`을 할 때마다, 크기에 딱 맞는 사이즈를 동적할당을 하는 것이 아닌 여유 공간까지 추가로 할당하여, 할당한 메모리가 부족하지 않을 땐 `ft_strlcat`으로 붙이는 것이 `malloc`의 호출 횟수를 줄이는 가장 효과적인 방법이였다.
+
+이와 관련한 `read_buff`, `ft_strdup`, `ft_strjoin`의 코드를 봐보자.
+```c
+char *read_buff(int fd, char *save)
+{
+	int m_size;
+	int r_size;
+	char buff[BUFFER_SIZE + 1];
+	  
+	m_size = ft_strlen(save);
+	while (!(ft_strchr(save, '\n')))
+	{
+		r_size = read(fd, buff, BUFFER_SIZE);
+		if (r_size < 0)
+			return (take_free(save));
+		if (r_size == 0)
+			break ;
+		buff[r_size] = '\0';
+		if (!save)
+			save = ft_strdup(buff, &m_size);
+		else
+			save = ft_strjoin(save, buff, &m_size);
+		if (!save)
+			return (0);
+	}
+	return (save);
+}
+
+char *ft_strdup(char *buff, int *m_size)
+{
+	int size;
+	char *result;
+	  
+	size = ft_strlen(buff) + 1;
+	result = (char *)malloc(sizeof(char) * (BUFFER_SIZE * 2));
+	if (!result)
+		return (take_free(result));
+	*m_size = BUFFER_SIZE * 2;
+	result[0] = '\0';
+	ft_strlcat(result, buff, size);
+	return (result);
+}
+  
+char *ft_strjoin(char *save, char const *buff, int *m_size)
+{
+	int i;
+	int size;
+	char *result;
+	  
+	result = NULL;
+	if (save && buff)
+	{
+		size = ft_strlen(save) + ft_strlen(buff) + 1;
+		if (*m_size >= size)
+		{
+			ft_strlcat(save, buff, size);
+			return (save);
+		}
+		*m_size = (size / BUFFER_SIZE + 1) * BUFFER_SIZE * 2;
+		result = (char *)malloc(sizeof(char) * (*m_size));
+		if (!result)
+			return (take_free(save));
+		i = -1;
+		while (++i < (int)ft_strlen(save))
+			result[i] = save[i];
+		result[i] = '\0';
+		ft_strlcat(result, buff, size);
+	}
+	take_free(save);
+	return (result);
+}
+```
+
+`read_buff`에서 버퍼를 읽고 `save`에 저장하게 되는데, 이 과정에서 두가지 분기로 나뉜다.
+
+첫 번째로는 save가 NULL일 경우, 이 경우에선 ft_strdup에서 따로 동적할당을 진행해주게 되는데, 일반적인 dup은 들어온 매개변수의 길이 만큼 동적할당을 해주게 된다. 하지만 나의 경우, 여유 메모리 공간을 확보하기 위해 BUFFER_SIZE의 두 배만큼 추가로 동적할당을 해주어 확보하여 buff를 복사하여 붙혀 넣는다.
+
+두 번째로는 save에 어떤 문자라도 들어있는 경우이다. 이 경우에는 read_buff에서 선언한 m_size가 활용되는데, m_size는 현재 save에 얼마만큼의 메모리 공간이 할당 되어있는지를 뜻한다. 이 메모리 공간은 현재 save의 문자열 길이와 추가하려는 buff의 문자열의 길이의 합과 비교되어 메모리 공간이 부족한지 여유로운 지 체크하는 역활로써 쓰인다.
+
+메모리 공간이 여유로울 경우, ft_strlcat을 이용하여 추가적인 할당없이 붙혀넣어 시간복잡도를 낮추게 된다. 하지만 메모리 공간이 부족할 경우, m_size를 BUFFER_SIZE과 함께 계산해 전 메모리 공간의 2배씩을 할당해주어 여유 공간을 추가적으로 할당한다.

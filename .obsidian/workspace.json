@@ -13,7 +13,25 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Circle_1/get_next_line/get_next_line.md",
+                "file": "Circle_1/get_next_line/File Descriptor.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "fd4383c6cf53c596",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dfb5d0cc350ef867",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Circle_1/get_next_line/File Descriptor.md",
                 "mode": "source",
                 "source": false
               }
@@ -73,12 +91,11 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 255.5
   },
   "right": {
     "id": "709a9a150c3275d3",
@@ -94,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Circle_1/get_next_line/get_next_line.md",
+                "file": "Circle_1/get_next_line/File Descriptor.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Circle_1/get_next_line/get_next_line.md",
+                "file": "Circle_1/get_next_line/File Descriptor.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Circle_1/get_next_line/get_next_line.md"
+                "file": "Circle_1/get_next_line/File Descriptor.md"
               }
             }
           }
@@ -155,8 +172,10 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "166cd96ca8c3b418",
+  "active": "dfb5d0cc350ef867",
   "lastOpenFiles": [
+    "Circle_1/get_next_line/Static.md",
+    "Circle_1/get_next_line/젤get_next_line.md",
     "Circle_0/Linked List.md"
   ]
 }
