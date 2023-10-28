@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Circle_0/Linked List.md",
+                "file": "Circle_1/get_next_line/Static.md",
                 "mode": "source",
                 "source": false
               }
@@ -91,12 +91,12 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 255.5
+    "width": 255.5,
+    "collapsed": true
   },
   "right": {
     "id": "709a9a150c3275d3",
@@ -112,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Circle_0/Linked List.md",
+                "file": "Circle_1/get_next_line/Static.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +129,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Circle_0/Linked List.md",
+                "file": "Circle_1/get_next_line/Static.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,7 +152,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Circle_0/Linked List.md"
+                "file": "Circle_1/get_next_line/Static.md"
               }
             }
           }
@@ -173,15 +173,15 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "dfb5d0cc350ef867",
+  "active": "f8d5d39e641ff993",
   "lastOpenFiles": [
     "Circle_1/get_next_line/get_next_line.md",
-    "Circle_1/get_next_line/Static.md",
     "Circle_1/get_next_line/File Descriptor.md",
+    "Circle_1/get_next_line/Static.md",
+    "Circle_0/Linked List.md",
     "Image/Array_L_List.png",
     "Image/FD_TABLE.png",
     "Image/OPEN_MAX.png",
-    "README.md",
-    "Circle_0/Linked List.md"
+    "README.md"
   ]
 }
