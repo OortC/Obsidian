@@ -1,16 +1,21 @@
 공부 해야할 것
 1. 가상머신
-2. 리눅스 (시스템, 명령어), 쉘스크립트
-3. sudo
-	1. tty
-	2. visudo, etc/sudoer
-4. 패키지 시스템
-5. LVM
-6. 어플리케이션 권한 설정
+	1. 가상머신 작동방식
+	2. centOS, Debian 차이점
+	3. apt, aptitude 차이점
+	4. AppArmor
+2. 유저 추가, 그룹 추가, 유저 그룹 가입
+3. 패스워드 정책 설정, 패스워드 변경
+4. hostname 수정, 파시션 확인
+5. sudo
+	1. sudo 정책 적용
+	2. tty
+	3. visudo, etc/sudoer
+6. UFW
+7. LVM
 9. ssh
-10. 방화벽
-11. 포트포워딩
-12. cron
-13. 웹 서버 기본 구조
-14. AppArmor
-15. apt, aptitude 차이점
+	1. ssh란?
+	2. 포트포워딩
+10. monitoring.sh
+	1. cron
+11. 웹 서버 기본 구조
