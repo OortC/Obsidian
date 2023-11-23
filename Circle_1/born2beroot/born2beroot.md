@@ -4,7 +4,18 @@
 	2. centOS, Debian 차이점
 	3. apt, aptitude 차이점
 	4. AppArmor
-2. 유저 추가, 그룹 추가, 유저 그룹 가입
+2. 그룹 관련 명령어
+	1. 그룹
+		1. 그룹 조회 : `cat /etc/group`
+		2. 그룹 추가 : `groupadd [그룹명]`
+		3. 그룹 삭제 : `groupdel [그룹명]`
+	2. `gpasswd` 옵션
+		1. 그룹에 사용자 추가 : `gpasswd -a [사용자]`
+		2. 그룹의 사용자 삭제 : `gpasswd -d [사용자]`
+		3. 그룹 패스워드 삭제 : `gpasswd -r [그룹명]`
+	3.  사용자
+		1. 사용자 추가 : `useradd [사용자명]`
+		2. 사용자 삭제 : `userdel [사용자명]`
 3. 패스워드 정책 설정, 패스워드 변경
 4. hostname 수정, 파시션 확인
 5. sudo
@@ -13,9 +24,9 @@
 	3. visudo, etc/sudoer
 6. UFW
 7. LVM
-9. ssh
+8. ssh
 	1. ssh란?
 	2. 포트포워딩
-10. monitoring.sh
+9. monitoring.sh
 	1. cron
-11. 웹 서버 기본 구조
+10. 웹 서버 기본 구조
