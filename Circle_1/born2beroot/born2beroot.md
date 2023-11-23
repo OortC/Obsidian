@@ -31,14 +31,16 @@
 		2. 사용자 삭제 : `userdel [사용자명]`
 		3. 사용자 그룹 확인 : `id [사용자명]`
 		4. 사용자 패스워드 변경 : `passwd [사용자명]`
-2. 패스워드 정책 설정, 패스워드 변경
-	1. `vi /etc/login.defs`
-		- `PASS_MAX_DAYS`, `PASS_MIN_DAYS`, `PASS_WARN_AGE`
-	2. `apt install libpam-pwquality`
-	3. `vi /etc/pam.d/common-password`
-		- `pam_pwquality.so retry=3 minlen=10 ucredit=1 lcredit=-1 dcredit=-1 maxrepeat=3 reject_username enforce_for_root difok=7`
-3. hostname 수정 : `hostname [변경명]`
-4. sudo
+2. PASSWORD
+	- 주로 PAM(Pluggable Authentication Modules)를 사용하여 시스템의 패스워드 정책을 제어
+	- 패스워드 정책 설정
+		1. `vi /etc/login.defs`
+			- `PASS_MAX_DAYS`, `PASS_MIN_DAYS`, `PASS_WARN_AGE`
+		2. `apt install libpam-pwquality`
+		3. `vi /etc/pam.d/common-password`
+			- `pam_pwquality.so retry=3 minlen=10 ucredit=1 lcredit=-1 dcredit=-1 maxrepeat=3 reject_username enforce_for_root difok=7`
+4. hostname 수정 : `hostname [변경명]`
+5. sudo
 	-  sudo 정책 적용
 		1. `Default authfail_message="권한 획득 실패 메세지"`
 		2. `badpass_message="비밀번호 틀릴 때 메세지"`
@@ -50,12 +52,14 @@
 	-  tty (teletypewriter)
 		- 리눅스, 유닉스 기반 시스템에서 현재 사용자가 로그인한 터미널 디바이스를 나타냄
 		- tty 명령어를 사용하면 현재 터미널 디바이스를 확인 가능
-	1. visudo, etc/sudoer
-5. UFW
-6. LVM
-7. ssh
+	-  visudo
+		- visudo를 이용하여 '/ect/sudoers' 파일 수정하는 것을 권장
+		- visudo를 사용하면 텍스트 에디터를 열기 전에 파일의 유효성 검사를 하므로, 수정 사항이 구문적으로 올바른 지 확인 가능
+6. UFW
+7. LVM
+8. ssh
 	1. ssh란?
 	2. 포트포워딩
-8. monitoring.sh
+9. monitoring.sh
 	1. cron
-9. 웹 서버 기본 구조
+10. 웹 서버 기본 구조
