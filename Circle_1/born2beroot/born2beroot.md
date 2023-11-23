@@ -5,11 +5,19 @@
 		- 주로 하나의 물리적인 컴퓨터에서 여러 운영 체제를 실해하거나, 개발 및 테스트 목적으로 사용
 	1. centOS, Debian 차이점
 		- centOS 
-			1. RPM(Red Hat Package Manager) 패키지 시스템 사용
-			2. 
+			1. RPM(Red Hat Package Manager) 기반, 'yum'이나 'dnf'를 통해 패키지 관리
+			2. 신뢰성 및 안정성이 높아, 기업 환경 / 특히 서버용에서 많이 사용
+		- Debian
+			1. dpkg 기반, 'apt'를 통해 패키지 관리
+			2. 커뮤니티 중심 개발 및 지원, 무료 및 오픈 소스 소프트웨어 프로젝트
 	1. apt, aptitude 차이점
+		- 
 	2. AppArmor
-2. 그룹 관련 명령어
+		- 사용자와 프로세스의 보안을 강화하기 위한 LSM(Linux Security Module) 중 하나
+		- LSM은 리눅스 커널의 보안 기능을 확장하고 강화하는 모듈
+		- 어플리케이션의 행위를 제한하고 감시하는 데 중점을 둔 보안 도구
+		- 프로파일 기반 보안, 실행 시간 감시 및 제한, 경로 기반 제어, 네트워크 제어, 프로세스 간 통신 보호
+1. 그룹 관련 명령어
 	1. 그룹
 		1. 그룹 조회 : `cat /etc/group`
 		2. 그룹 추가 : `groupadd [그룹명]`
@@ -23,17 +31,20 @@
 		1. 사용자 추가 : `useradd [사용자명]`
 		2. 사용자 삭제 : `userdel [사용자명]`
 		3. 사용자 그룹 확인 : `id [사용자명]`
-3. 패스워드 정책 설정, 패스워드 변경
-4. hostname 수정, 파시션 확인
-5. sudo
+		4. 사용자 패스워드 변경 : `passwd [사용자명]`
+2. 패스워드 정책 설정, 패스워드 변경
+	1. `apt install libpam-pwquality`
+	2. `vi /etc/login.defs`
+3. hostname 수정 : `hostname [변경명]`
+4. sudo
 	1. sudo 정책 적용
 	2. tty
 	3. visudo, etc/sudoer
-6. UFW
-7. LVM
-8. ssh
+5. UFW
+6. LVM
+7. ssh
 	1. ssh란?
 	2. 포트포워딩
-9. monitoring.sh
+8. monitoring.sh
 	1. cron
-10. 웹 서버 기본 구조
+9. 웹 서버 기본 구조
