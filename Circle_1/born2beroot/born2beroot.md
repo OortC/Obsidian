@@ -56,8 +56,17 @@
 		- visudo를 이용하여 '/ect/sudoers' 파일 수정하는 것을 권장
 		- visudo를 사용하면 텍스트 에디터를 열기 전에 파일의 유효성 검사를 하므로, 수정 사항이 구문적으로 올바른 지 확인 가능
 6. UFW
-	- UFW(Uncomplicated Firewall), 리눅스에서 사용되는 간단하고 사용하기 쉬운 방화벽 설정 도구
-	- 주로 서버 환경에서
+	- UFW란?
+		- UFW(Uncomplicated Firewall), 리눅스에서 사용되는 간단하고 사용하기 쉬운 방화벽 설정 도구
+		- 주로 서버 환경에서 네트워크 보안을 강화하고 외부에서의 액세스를 통제하기 위해 사용
+		- 응용 프로그램 및 서비스에 대한 규칙을 정의하고, 특정 포트의 열고 닫음, 특정 IP주소 또는 범위의 IP주소에서의 연결 허용 또는 차단 등을 구성할 수 있음
+	- UFW 설정
+		1. `apt-get install ufw`
+		2. `ufw status verbose`
+		3. `ufw enable` 
+		4.  `ufw default deny`
+		5. `ufw allow 4242`
+		6. `ufw status verbose`
 1. LVM
 2. ssh
 	1. ssh란?
