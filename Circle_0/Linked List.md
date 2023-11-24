@@ -4,7 +4,6 @@ tags:
   - 자료구조
 ---
 # Linked List
----
 ## Array와 Linked List
 
 ![[Array_L_List.png]]
