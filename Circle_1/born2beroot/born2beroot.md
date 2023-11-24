@@ -39,8 +39,19 @@
 		2. `apt install libpam-pwquality`
 		3. `vi /etc/pam.d/common-password`
 			- `pam_pwquality.so retry=3 minlen=10 ucredit=1 lcredit=-1 dcredit=-1 maxrepeat=3 reject_username enforce_for_root difok=7`
-4. hostname 수정 : `hostname [변경명]`
-5. sudo
+	- 장점 및 단점
+		- 장점 : 보안 강화, 안전한 계정 관리
+		- 단점 : 사용자 편의성 저하, 관리 부주의 증가, 정책에 따른 불편함 증가로 약한 패스워드 사용
+1. hostname 수정 : `hostname [변경명]`
+2. sudo
+	- sudo란?
+		- 사용자가 특정 명령을 관리자 권한으로 실행할 수 있게 해주는 도구
+		- 이를 통해, 시스템 관리자가 일반 사용자들에게 일부 관리자 권한을 부여하고, 시스템 보안을 강화
+		- 사용자에게 필요한 작업을 수행할 권한을 부여하면서도 불필요한 권한 부여는 피하고, 보안 문제를 최소화 할 수 있도록 도와줌
+	- 사용 이유
+		1. 보안 강화 - 필요한 권한만을 부여하여 시스템 보안을 강화시킴, 또한 비밀번호 인증을 통해 권한 상승에 대한 추가적인 보안 계층을 제공
+		2. 작업 기록 - sudo를 통해 실행된 명령어와 그에 따른 로그를 기록할 수 있다. 이는 시스템의 관리 작업을 추적하고, 문제가 발생할 경우 해결에 도움을 줌
+		3. 개별 사용자 식별 - 각 사용자는 자신의 비밀번호를 사용하여 sudo 명령어를 실행하므로, 관리자는 누가 어떤 명령을 실행했는지 식별 가능
 	-  sudo 정책 적용
 		1. `Default authfail_message="권한 획득 실패 메세지"`
 		2. `badpass_message="비밀번호 틀릴 때 메세지"`
@@ -55,7 +66,7 @@
 	-  visudo
 		- visudo를 이용하여 '/ect/sudoers' 파일 수정하는 것을 권장
 		- visudo를 사용하면 텍스트 에디터를 열기 전에 파일의 유효성 검사를 하므로, 수정 사항이 구문적으로 올바른 지 확인 가능
-6. UFW
+4. UFW
 	- UFW란?
 		- UFW(Uncomplicated Firewall), 리눅스에서 사용되는 간단하고 사용하기 쉬운 방화벽 설정 도구
 		- 주로 서버 환경에서 네트워크 보안을 강화하고 외부에서의 액세스를 통제하기 위해 사용
@@ -64,18 +75,34 @@
 		1. `apt-get install ufw`
 		2. `ufw status verbose`
 		3. `ufw enable` 
-		4.  `ufw default deny`
+		4. `ufw default deny`
 		5. `ufw allow 4242`
 		6. `ufw status verbose`
-7. LVM
+5. LVM
 	- LVM이란?
 		- LVM(Logical Volume Manager), 리눅스에서 디스크 관리를 용이하게 하는 유틸리티
 		- LVM을 사용하면, 물리적인 디스크와 볼륨을 논리적인 단위로 나누고, 이를 필요에 따라 동적으로 조절할 수 있다.
 	- 구성 요소 및 작동 방식
 		- PV(Physical Volume), VG(Volume Group), LV(Logical Volume)으로 구성
-1. SSH
-	1. SSH란?
-	2. 포트포워딩
-2. monitoring.sh
+6. SSH
+	- SSH란?
+		- SSH(Secure Shell), 네트워크 상에서 안전하게 통신하기 위한 프로토콜
+		- 주로 원격으로 다른 컴퓨터에 접속하거나 파일을 전송할 때 사용
+		- 텍스트 기반의 원격 접속으로 보안적으로 강력하며, 그래픽 기반의 원격 접속보다 더 안전함
+	- 핵심 기능
+		1. 보안 접속
+			- SSH는 텍스트 기반의 원격 접속을 안전하게 제공. 데이터의 전송이 암호화되기 때문에 중간에서 정보를 가로채는 것이 어려움
+		2. 원격제어
+			- SSH를 사용하면 원격 서버 또는 다른 컴퓨터에 접속하여 명령 실행 가능.
+		3. 파일전송
+			- SCP(Secure Copy Protocol) 또는 SFTP(SSH File Transfer Protocol)을 사용하여 파일을 안전하게 전송 가능
+		4. 포트포워딩
+			- 로컬 컴퓨터와 원격 서버 간의 포트 포워딩을 설정하여 로컬 서버의 서비스에 접근
+	- 포트 포워딩
+		- 네트워크에서 특정한 포트를 통해 들어오는 연결을 다른 포트나 다른 IP 주소로 전달하는 프로세스
+		- 주로 공유기나 방화벽과 같은 네트워크 장비를 통해 내부 네트워크의 서비스에 외부에서 접근할 수 있도록 하는데 사용
+		- 특정한 포트와 IP 주소를 기반으로 동작하며, 공용 IP 주소와 여러 내부 장치 사이의 통신을 원할하게 만듬.
+		- '원격 접속', '로컬 서버에 대한 외부 접속' 등에 상황에서 사용됨
+1. monitoring.sh
 	1. cron
-3. 웹 서버 기본 구조
+2. 웹 서버 기본 구조
