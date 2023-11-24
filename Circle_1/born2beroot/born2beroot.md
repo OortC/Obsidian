@@ -49,7 +49,7 @@ Born2BeRoot
 4. hostname
 	1. 시스템 이름 확인 : `hostname`
 	2. 시스템 이름 변경 : `hostname [변경명]`
-	3. 호스트의 IP 주소 출력 : `hostname -i`
+	3. 호스트의 IP 주소 출력 : `hostname -I`
 ---
 5. sudo
 	- sudo란?
