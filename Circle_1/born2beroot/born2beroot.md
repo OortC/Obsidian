@@ -67,10 +67,13 @@
 		4.  `ufw default deny`
 		5. `ufw allow 4242`
 		6. `ufw status verbose`
-1. LVM
-2. ssh
+7. LVM
+	- LVM이란?
+		- LVM(Logical Volume Manager), 리눅스에서 디스크 관리를 용이하게 하는 유틸리티
+		- LVM을 사용하면, 물리적인 디스크와 볼륨을 논리적인 단위로 나누고, 이를 필요에 따라 동적으로 조절할 수 있다.
+1. ssh
 	1. ssh란?
 	2. 포트포워딩
-3. monitoring.sh
+2. monitoring.sh
 	1. cron
-4. 웹 서버 기본 구조
+3. 웹 서버 기본 구조
