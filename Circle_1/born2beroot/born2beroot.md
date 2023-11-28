@@ -176,7 +176,7 @@
 	printf "/"
 	df -BG | grep /dev/map | awk '{sum+=$4}END{print sum}' | tr -d '\n'
 	printf "Gb ("
-	df -BM | grep /dev/map | awk '{sum1+=$3 ; sum2+=$4 }END{printf "%d", sum1 / sum2 * 100}' | tr -d '\n'
+	df -BM | grep /dev/map | awk '{sum1+=$3; sum2+=$4}END{printf "%d", sum1 / sum2 * 100}' | tr -d '\n'
 	printf "%%)\n"
 	
 	printf "#CPU load: "
