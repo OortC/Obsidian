@@ -49,7 +49,7 @@
 		- `PASS_MAX_DAYS`, `PASS_MIN_DAYS`, `PASS_WARN_AGE`
 	2. `apt install libpam-pwquality`
 	3. `vi /etc/pam.d/common-password`
-		- `pam_pwquality.so retry=3 minlen=10 ucredit=1 lcredit=-1 dcredit=-1 maxrepeat=3 reject_username enforce_for_root difok=7`
+		- `pam_pwquality.so retry=3 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 reject_username enforce_for_root difok=7`
 - 장점 및 단점
 	- 장점 : 보안 강화, 안전한 계정 관리
 	- 단점 : 사용자 편의성 저하, 관리 부주의 증가, 정책에 따른 불편함 증가로 약한 패스워드 사용
@@ -80,7 +80,6 @@
 	5. `requiretty`
 	6. `passwd_tries=3`
 	7. secure_path : `/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin`
-	8. 
 -  tty (teletypewriter)
 	- 리눅스, 유닉스 기반 시스템에서 현재 사용자가 로그인한 터미널 디바이스를 나타냄
 	- tty 명령어를 사용하면 현재 터미널 디바이스를 확인 가능
