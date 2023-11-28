@@ -152,9 +152,10 @@
 ---
 
 ### 9. Cron
-- 일정한 간격으로 프로그램이나 스크립트를 자동으로 실행하기 위한 시간 기반 작업 스케줄러
--  작업은 주기적으로 실행되며, 특정 시간, 날짜 또는 주기에 따라 정의된 작업을 실행함
-- Cron 작업은 crontab 파일을 사용하여 정의됨. crontab 파일에는 실행할 명령 라인과 실행 주기가 정의되어 있음.
+- Cron이란?
+	- 일정한 간격으로 프로그램이나 스크립트를 자동으로 실행하기 위한 시간 기반 작업 스케줄러
+	-  작업은 주기적으로 실행되며, 특정 시간, 날짜 또는 주기에 따라 정의된 작업을 실행함
+	- Cron 작업은 crontab 파일을 사용하여 정의됨. 이 파일에 실행할 명령 라인과 실행 주기가 정의되어 있음
 - monitoring.sh 설정
 	1. apt-get -y install sysstat
 	2. vim /root/monitoring.sh 후 아래 내용 입력
@@ -203,7 +204,7 @@
 	printf ")\n"
 	
 	printf "#Sudo : "
-	journalctl _COMM=sudo | wc -l | tr -d '\n'
+	journalctl | grep sudo | grep COMMAND | wc -l | tr -d '\n'
 	printf " cmd\n"
 	```
 
