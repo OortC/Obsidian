@@ -163,13 +163,13 @@
 	uname -a
 	
 	printf "#CPU physical : "
-	nproc --all
+	cat /proc/cpuinfo | grep physical id | wc -l
 	
 	printf "#vCPU : "
 	cat /proc/cpuinfo | grep processor | wc -l
 	
 	printf "#Memory Usage: "
-	free -m | grep Mem | awk '{printf"%d/%dMB (%.2f%%)\n", $3, $2, $3/$2 * 100}'
+	free -m | grep Mem | awk '{printf "%d/%dMB (%.2f%%)\n", $3, $2, $3/$2 * 100}'
 	
 	printf "#Disk Usage: "
 	df -a -BM | grep /dev/map | awk '{sum+=$3}END{print sum}' | tr -d '\n'
