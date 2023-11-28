@@ -7,10 +7,10 @@
 	- 주로 하나의 물리적인 컴퓨터에서 여러 운영 체제를 실해하거나, 개발 및 테스트 목적으로 사용
 2. centOS, Debian 차이점
 	- centOS 
-		1. RPM(Red Hat Package Manager) 기반, 'yum'이나 'dnf'를 통해 패키지 관리
+		1. RPM(Red Hat Package Manager) 기반, `yum`이나 `dnf`를 통해 패키지 관리
 		2. 신뢰성 및 안정성이 높아, 기업 환경 / 특히 서버용에서 많이 사용
 	- Debian
-		1. dpkg 기반, 'apt'를 통해 패키지 관리
+		1. dpkg 기반, `apt`를 통해 패키지 관리
 		2. 커뮤니티 중심 개발 및 지원, 무료 및 오픈 소스 소프트웨어 프로젝트
 3. apt, aptitude 차이점
 4. AppArmor
@@ -38,7 +38,7 @@
 	4. 사용자 패스워드 변경 : `passwd [사용자명]`
 4. `usermod` 옵션
 	1. 그룹에 사용자 추가 : `usermod -aG [그룹명] [사용자명]`
-	2. 사용자의 그룹 변경 : `usermode -g [그룹명] [사용자명]`
+	2. 사용자의 그룹 변경 : `usermod -g [그룹명] [사용자명]`
 
 ---
 
@@ -77,20 +77,20 @@
 	3. 개별 사용자 식별 - 각 사용자는 자신의 비밀번호를 사용하여 sudo 명령어를 실행하므로, 관리자는 누가 어떤 명령을 실행했는지 식별 가능
 -  sudo 정책 적용
 	1. `Default authfail_message="권한 획득 실패 메세지"`
-	2. `badpass_message="비밀번호 틀릴 때 메세지"`
-	3. `iolog_dir="/var/log/sudo"`
-	4. `log_input`, `log_output`
-	5. `requiretty`
-	6. `passwd_tries=3`
-	7. secure_path : `/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin`
+	2. `Default badpass_message="비밀번호 틀릴 때 메세지"`
+	3. `Default iolog_dir="/var/log/sudo"`
+	4. `Default log_input`, `log_output`
+	5. `Default requiretty`
+	6. `Default passwd_tries=3`
+	7. `secure_path : /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin`
 - TTY (teletypewriter)
 	- 리눅스 시스템에서 텍스트 기반의 콘솔 환경을 나타냄
 	- 가상 콘솔이나 터미널 에뮬레이터를 통해 사용자와 시스템 간의 상호 작용을 담당하는 인터페이스
 	- 사용자가 로그인한 후 새로운 세션을 시작하거나, 터미널을 열거나, SSH와 같은 원격 접속을 통해 시스템에 접근할 때 TTY가 사용됨
-	- 일반적으로 '/dev/tty[1-6]'과 같은 장치 파일로 표현되며, 각각의 가상 콘솔을 나타냄
+	- 일반적으로 `/dev/tty[1-6]`과 같은 장치 파일로 표현되며, 각각의 가상 콘솔을 나타냄
 -  visudo
-	- visudo를 이용하여 '/ect/sudoers' 파일 수정하는 것을 권장
-	- visudo를 사용하면 텍스트 에디터를 열기 전에 파일의 유효성 검사를 하므로, 수정 사항이 구문적으로 올바른 지 확인 가능
+	- `visudo`를 이용하여 `/ect/sudoers` 파일 수정하는 것을 권장
+	- `visudo`를 사용하면 텍스트 에디터를 열기 전에 파일의 유효성 검사를 하므로, 수정 사항이 구문적으로 올바른 지 확인 가능
 
 ---
 
@@ -116,13 +116,13 @@
 - 구성 요소 및 작동 방식
 	- PV(Physical Volume), VG(Volume Group), LV(Logical Volume)으로 구성
 - Bonus (8GB)
-	- root, 2600MB
-	- swap, 600MB
-	- home, 1400MB
-	- var, 800MB
-	- srv, 800MB
-	- tmp, 800MB
-	- var-log, 1000MB
+	- `root, 2600MB`
+	- `swap, 600MB`
+	- `home, 1400MB`
+	- `var, 800MB`
+	- `srv, 800MB`
+	- `tmp, 800MB`
+	- `var-log, 1000MB`
 
 ---
 
@@ -146,13 +146,12 @@
 	- 특정한 포트와 IP 주소를 기반으로 동작하며, 공용 IP 주소와 여러 내부 장치 사이의 통신을 원할하게 만듬.
 	- '원격 접속', '로컬 서버에 대한 외부 접속' 등에 상황에서 사용됨
 - SSH 설정
-	1. apt-get -y install openssh-server
-	2. vim /etc/ssh/sshd_config
-	3. '#Port 22' -> 'Port 4242' 변경
-	4. '#PermitRootLogin prohibit-password' -> 'PermitRootLogin no' 변경
-	5. systemctl restart ssh
-	6. systemctl status ssh
-	7. 포트포워딩
+	1. `apt-get -y install openssh-server`
+	2. `vim /etc/ssh/sshd_config`
+		- `#Port 22 -> Port 4242`
+		- `#PermitRootLogin prohibit-password -> PermitRootLogin no`
+	3. `systemctl restart ssh`
+	4. `systemctl status ssh`
 
 ---
 
@@ -162,8 +161,8 @@
 	-  작업은 주기적으로 실행되며, 특정 시간, 날짜 또는 주기에 따라 정의된 작업을 실행함
 	- Cron 작업은 crontab 파일을 사용하여 정의됨. 이 파일에 실행할 명령 라인과 실행 주기가 정의되어 있음
 - monitoring.sh 설정
-	1. apt-get -y install sysstat
-	2. vim /root/monitoring.sh 후 아래 내용 입력
+	1. `apt-get -y install sysstat`
+	2. `vim /root/monitoring.sh`
 	```c
 	printf "#Architecture: "
 	uname -a
