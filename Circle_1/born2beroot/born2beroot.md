@@ -80,6 +80,7 @@
 	5. `requiretty`
 	6. `passwd_tries=3`
 	7. secure_path : `/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin`
+	8. 
 -  tty (teletypewriter)
 	- 리눅스, 유닉스 기반 시스템에서 현재 사용자가 로그인한 터미널 디바이스를 나타냄
 	- tty 명령어를 사용하면 현재 터미널 디바이스를 확인 가능
