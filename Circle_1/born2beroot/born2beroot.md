@@ -24,21 +24,21 @@
 ### 2. USER / GROUP
 1. 그룹
 	1. 그룹 조회 : `cat /etc/group`
-	2. 그룹 추가 : `groupadd [그룹명]`
-	3. 그룹 삭제 : `groupdel [그룹명]`
+	2. 그룹 추가 : `groupadd [그룹명]` / `addgroup [그룹명]`
+	3. 그룹 삭제 : `groupdel [그룹명]` / `delgroup [그룹명]`
 2. `gpasswd` 옵션
 	1. 그룹 패스워드 변경 : `gpasswd [그룹명]`
 	2. 그룹에 사용자 추가 : `gpasswd -a [사용자] [그룹명]`
 	3. 그룹의 사용자 삭제 : `gpasswd -d [사용자]`
 	4. 그룹 패스워드 삭제 : `gpasswd -r [그룹명]`
 3.  사용자
-	1. 사용자 추가 : `useradd [사용자명]`
-	2. 사용자 삭제 : `userdel [사용자명]`
+	1. 사용자 추가 : `useradd [사용자명]` / `adduser [사용자명]`
+	2. 사용자 삭제 : `userdel [사용자명]` / `deluser [사용자명]`
 	3. 사용자 그룹 확인 : `id [사용자명]`
 	4. 사용자 패스워드 변경 : `passwd [사용자명]`
 4. `usermod` 옵션
 	1. 그룹에 사용자 추가 : `usermod -aG [그룹명] [사용자명]`
-	2. 사용자의 그룹 변경 : `usermode -g [] [이`
+	2. 사용자의 그룹 변경 : `usermode -g [그룹명] [사용자명]`
 
 ---
 
@@ -83,9 +83,11 @@
 	5. `requiretty`
 	6. `passwd_tries=3`
 	7. secure_path : `/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin`
--  tty (teletypewriter)
-	- 리눅스, 유닉스 기반 시스템에서 현재 사용자가 로그인한 터미널 디바이스를 나타냄
-	- tty 명령어를 사용하면 현재 터미널 디바이스를 확인 가능
+- TTY (teletypewriter)
+	- 리눅스 시스템에서 텍스트 기반의 콘솔 환경을 나타냄
+	- 가상 콘솔이나 터미널 에뮬레이터를 통해 사용자와 시스템 간의 상호 작용을 담당하는 인터페이스
+	- 사용자가 로그인한 후 새로운 세션을 시작하거나, 터미널을 열거나, SSH와 같은 원격 접속을 통해 시스템에 접근할 때 TTY가 사용됨
+	- 일반적으로 '/dev/tty[1-6]'과 같은 장치 파일로 표현되며, 각각의 가상 콘솔을 나타냄
 -  visudo
 	- visudo를 이용하여 '/ect/sudoers' 파일 수정하는 것을 권장
 	- visudo를 사용하면 텍스트 에디터를 열기 전에 파일의 유효성 검사를 하므로, 수정 사항이 구문적으로 올바른 지 확인 가능
