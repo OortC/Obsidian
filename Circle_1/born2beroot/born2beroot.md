@@ -140,6 +140,12 @@
 	- 주로 공유기나 방화벽과 같은 네트워크 장비를 통해 내부 네트워크의 서비스에 외부에서 접근할 수 있도록 하는데 사용
 	- 특정한 포트와 IP 주소를 기반으로 동작하며, 공용 IP 주소와 여러 내부 장치 사이의 통신을 원할하게 만듬.
 	- '원격 접속', '로컬 서버에 대한 외부 접속' 등에 상황에서 사용됨
+- SSH 설정
+	1. apt-get -y install openssh-server
+	2. vim /etc/ssh/sshd_config
+	3. '#Port 22' -> 'Port 4242' 변경
+	4. '#PermitRootLogin prohibit-password' -> 'PermitRootLogin no' 변경
+	5. 
 
 ---
 
