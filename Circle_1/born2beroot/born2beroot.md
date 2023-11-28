@@ -186,10 +186,10 @@
 	who -b | awk '{printf $3" "$4"\n"}'
 	
 	printf "#LVM use: "
-	if [ "$(lsblk | grep lvm | wc -l)" -gt 0 ] ; then printf "yes\n" ; else printf "no\n" ; fi
+	lsblk | grep LVM | wc -l | awk '{if ($1>0) print "yes"; else print "no"}'
 	
 	printf "#Connections TCP : "
-	ss | grep -i tcp | wc -l | tr -d '\n'
+	ss -t | grep ESTAB | wc -l | tr -d '\n'
 	printf " ESTABLISHED\n"
 	
 	printf "#User log: "
@@ -199,7 +199,7 @@
 	hostname -I | tr -d '\n'
 	
 	printf "("
-	ip link show | awk '$1 == "link/ether" {print $2}' | sed '2, $d' | tr -d '\n'
+	ip link | grep link/ether | awk '{printf $2}'
 	printf ")\n"
 	
 	printf "#Sudo : "
