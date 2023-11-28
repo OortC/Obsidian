@@ -50,6 +50,9 @@
 	2. `apt install libpam-pwquality`
 	3. `vi /etc/pam.d/common-password`
 		- `pam_pwquality.so retry=3 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 reject_username enforce_for_root difok=7`
+- 정책 적용 및 확인
+	- `sudo chage -M 30 -m 2 -W 7 [사용자명]`
+	- `sudo chage -l [사용자명]`
 - 장점 및 단점
 	- 장점 : 보안 강화, 안전한 계정 관리
 	- 단점 : 사용자 편의성 저하, 관리 부주의 증가, 정책에 따른 불편함 증가로 약한 패스워드 사용
