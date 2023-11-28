@@ -145,7 +145,9 @@
 	2. vim /etc/ssh/sshd_config
 	3. '#Port 22' -> 'Port 4242' 변경
 	4. '#PermitRootLogin prohibit-password' -> 'PermitRootLogin no' 변경
-	5. 
+	5. systemctl restart ssh
+	6. systemctl status ssh
+	7. 포트포워딩
 
 ---
 
