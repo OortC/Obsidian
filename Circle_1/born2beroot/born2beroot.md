@@ -111,8 +111,13 @@
 - 구성 요소 및 작동 방식
 	- PV(Physical Volume), VG(Volume Group), LV(Logical Volume)으로 구성
 - Bonus (8GB)
-	- root
-	- swap
+	- root, 2600MB
+	- swap, 600MB
+	- home, 1400MB
+	- var, 800MB
+	- srv, 800MB
+	- tmp, 800MB
+	- var-log, 1000MB
 
 ---
 
