@@ -172,11 +172,11 @@
 	free -m | grep Mem | awk '{printf "%d/%dMB (%.2f%%)\n", $3, $2, $3/$2 * 100}'
 	
 	printf "#Disk Usage: "
-	df -a -BM | grep /dev/map | awk '{sum+=$3}END{print sum}' | tr -d '\n'
+	df -BM | grep /dev/map | awk '{sum+=$3}END{print sum}' | tr -d '\n'
 	printf "/"
-	df -a -BM | grep /dev/map | awk '{sum+=$4}END{print sum}' | tr -d '\n'
-	printf "MB ("
-	df -a -BM | grep /dev/map | awk '{sum1+=$3 ; sum2+=$4 }END{printf "%d", sum1 / sum2 * 100}' | tr -d '\n'
+	df -BG | grep /dev/map | awk '{sum+=$4}END{print sum}' | tr -d '\n'
+	printf "Gb ("
+	df -BM | grep /dev/map | awk '{sum1+=$3 ; sum2+=$4 }END{printf "%d", sum1 / sum2 * 100}' | tr -d '\n'
 	printf "%%)\n"
 	
 	printf "#CPU load: "
