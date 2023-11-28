@@ -155,6 +155,57 @@
 - 일정한 간격으로 프로그램이나 스크립트를 자동으로 실행하기 위한 시간 기반 작업 스케줄러
 -  작업은 주기적으로 실행되며, 특정 시간, 날짜 또는 주기에 따라 정의된 작업을 실행함
 - Cron 작업은 crontab 파일을 사용하여 정의됨. crontab 파일에는 실행할 명령 라인과 실행 주기가 정의되어 있음.
+- monitoring.sh 설정
+	1. apt-get -y install sysstat
+	2. vim /root/monitoring.sh 후 아래 내용 입력
+	```c
+	printf "#Architecture: "
+	uname -a
+	
+	printf "#CPU physical : "
+	nproc --all
+	
+	printf "#vCPU : "
+	cat /proc/cpuinfo | grep processor | wc -l
+	
+	printf "#Memory Usage: "
+	free -m | grep Mem | awk '{printf"%d/%dMB (%.2f%%)\n", $3, $2, $3/$2 * 100}'
+	
+	printf "#Disk Usage: "
+	df -a -BM | grep /dev/map | awk '{sum+=$3}END{print sum}' | tr -d '\n'
+	printf "/"
+	df -a -BM | grep /dev/map | awk '{sum+=$4}END{print sum}' | tr -d '\n'
+	printf "MB ("
+	df -a -BM | grep /dev/map | awk '{sum1+=$3 ; sum2+=$4 }END{printf "%d", sum1 / sum2 * 100}' | tr -d '\n'
+	printf "%%)\n"
+	
+	printf "#CPU load: "
+	mpstat | grep all | awk '{printf "%.2f%%\n", 100-$13}'
+	
+	printf "#Last boot: "
+	who -b | awk '{printf $3" "$4"\n"}'
+	
+	printf "#LVM use: "
+	if [ "$(lsblk | grep lvm | wc -l)" -gt 0 ] ; then printf "yes\n" ; else printf "no\n" ; fi
+	
+	printf "#Connections TCP : "
+	ss | grep -i tcp | wc -l | tr -d '\n'
+	printf " ESTABLISHED\n"
+	
+	printf "#User log: "
+	who | wc -l
+	
+	printf "#Network: IP "
+	hostname -I | tr -d '\n'
+	
+	printf "("
+	ip link show | awk '$1 == "link/ether" {print $2}' | sed '2, $d' | tr -d '\n'
+	printf ")\n"
+	
+	printf "#Sudo : "
+	journalctl _COMM=sudo | wc -l | tr -d '\n'
+	printf " cmd\n"
+	```
 
 ---
 
