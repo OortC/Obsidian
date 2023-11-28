@@ -208,6 +208,8 @@
 	journalctl | grep sudo | grep COMMAND | wc -l | tr -d '\n'
 	printf " cmd\n"
 	```
+- crontab 설정
+	- `*/10 * * * * bash monitoring.sh | wall`
 
 ---
 
@@ -227,3 +229,7 @@
 4. 가상 인터페이스 (Virtual Interface)
 	- 소프트웨어적으로 생성되어 논리적으로 동작하는 인터페이스
 	- 가상 머신이나 VPN 등에서 사용됨
+
+---
+
+### 11. WordPress
