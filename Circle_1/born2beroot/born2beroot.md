@@ -266,7 +266,7 @@
 		- `apt-get -y install php-mysql`
 	- 설정
 		- `vi /etc/lighttpd/conf-available/15-fastcgi-php.conf`
-			- `bin-path`,` socket` 주석 처리
+			- `bin-path`, `socket` 주석 처리
 			- `"socket" => "/var/run/php/php8.2-fpm.sock",`
 		- `lighttpd-enable-mod fastcgi`
 		- `lighttpd-enable-mode fastcgi-php`
@@ -289,10 +289,10 @@
 		- `systemctl start mysql.service // DB 시작`
 		- `systemctl enable mysql.service // DB 부팅`
 	- 보안 설정
-		- mysql_secure_installation
-		- systemctl restart mysql.service
+		- `mysql_secure_installation`
+		- `systemctl restart mysql.service`
 	 - DB 설정
-		 - mysql -u root -p
+		 - `mysql -u root -p`
 		 - DB 생성 : `CREATE DATABASE [DB명];`
 		 - 계정 및 패스워드 설정 : `CREATE USER '[유저명]'@'localhost' IDENTIFIED BY '[패스워드]';`
 		 - 계정에 DB 권한 부여 : `GRANT ALL ON [DB명].* TO '[유저명]'@'localhost' IDENTIFIED BY '[패스워드]' WITH GRANT OPTION;`
