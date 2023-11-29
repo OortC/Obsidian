@@ -152,6 +152,7 @@
 		- `#PermitRootLogin prohibit-password -> PermitRootLogin no`
 	3. `systemctl restart ssh`
 	4. `systemctl status ssh`
+	5. `vim ~/.ssh/known_host`의 원격 접속 주소 삭제 (Error 발생시)
 
 ---
 
