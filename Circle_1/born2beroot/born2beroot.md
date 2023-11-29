@@ -238,31 +238,58 @@
 
 ### 11. WordPress
 1. Lighttpd
-	- 설치 : apt-get -y install lighttpd
+	- 설치 : `apt-get -y install lighttpd`
 	- 서버 명령어
-		- systemctl stop lighttpd.service // 서버 중지
-		- systemctl start lighttpd.service
-		- systemctl enable lighttpd.service
+		- `systemctl stop lighttpd.service // 서버 중지` 
+		- `systemctl start lighttpd.service // 서버 시작`
+		- `systemctl enable lighttpd.service // 서버 부팅`
 2. PHP
-	- 설치 : apt-get -y install php-fpm
+	- 설치
+		- `apt-get -y install php-fpm`
+		- `apt-get -y install php-mysql`
 	- 설정
-		- vi /etc/lighttpd/conf-available/15-fastcgi-php.conf
-			- bin-path, socket 주석 처리
-			- "socket" => "/var/run/php/php8.2-fpm.sock",
-		- lighttpd-enable-mod fastcgi
-		- lighttpd-enable-mode fastcgi-php
-		- service lighttpd force-reload
+		- `vi /etc/lighttpd/conf-available/15-fastcgi-php.conf`
+			- `bin-path`,` socket` 주석 처리
+			- `"socket" => "/var/run/php/php8.2-fpm.sock",`
+		- `lighttpd-enable-mod fastcgi`
+		- `lighttpd-enable-mode fastcgi-php`
+		- `service lighttpd force-reload`
 	- 설정 확인
-		- vi /etc/lighttpd/lighttpd.conf
-			- server.document-root = "/var/www/html"
-			- server.port =80
+		- `vi /etc/lighttpd/lighttpd.conf`
+			- `server.document-root = "/var/www/html"`
+			- `server.port =80`
 	- 포트 설정
-		- ufw allow 80
-		- hostport 8080 / guestport 80 포트포워딩
+		- `ufw allow 80`
+		- `hostport 8080` / `guestport 80` 포트포워딩
 	- PHP 연동 확인
-		- vi /var/www/html/info.php
-		```php
-		<?php
-			phpinfo();
-		?>
-		```
+		- `vi /var/www/html/info.php`
+		- `(host IP):8080` & `(host IP):8080/info.php `
+3. MariaDB
+	- 설치 : `apt-get -y install mariadb-server mariadb-clinet`
+	- DB 명령어
+		- `systemctl stop mysql.service // DB 중지`
+		- `systemctl start mysql.service // DB 시작`
+		- `systemctl enable mysql.service // DB 부팅`
+	- 보안 설정
+		- mysql_secure_installation
+		- systemctl restart mysql.service
+	 - DB 설정
+		 - mysql -u root -p
+		 - DB 생성 : `CREATE DATABASE [DB명];`
+		 - 계정 및 패스워드 설정 : `CREATE USER '[유저명]'@'localhost' IDENTIFIED BY '[패스워드]';`
+		 - 계정에 DB 권한 부여 : `GRANT ALL ON [DB명].* TO '[유저명]'@'localhost' IDENTIFIED BY '[패스워드]' WITH GRANT OPTION;`
+		 - 설정 마침 : `FLUSH PRIVILEGES`
+		 - 종료 : `EXIT`
+4. WordPress
+	- 설치
+		- `apt-get -y install wget`
+		- `wget -O /tmp/wordpress.tar.gz "http://wordpress.org/latest.tar.gz"`
+		- `tar -xvzf /tmp/wordpress.tar.gz -C /var/www/html`
+	- DB 연동
+		- `vi /var/www/html/wordpress/wp-config-sample.php`
+			- `define( 'DB_*')`에 생성한 DB, 계정, 패스워드 입력
+			- `define( '*_key' )`에 아래 주소의 키 값을 복사 붙혀넣기
+				- https://api.wordpress.org/secret-key/1.1/salt/
+		- `mv /var/www/html/wordpress/wp-config-sample.php /〃/wp-config.php`
+
+---
