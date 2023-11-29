@@ -237,3 +237,32 @@
 ---
 
 ### 11. WordPress
+1. Lighttpd
+	- 설치 : apt-get -y install lighttpd
+	- 서버 명령어
+		- systemctl stop lighttpd.service // 서버 중지
+		- systemctl start lighttpd.service
+		- systemctl enable lighttpd.service
+2. PHP
+	- 설치 : apt-get -y install php-fpm
+	- 설정
+		- vi /etc/lighttpd/conf-available/15-fastcgi-php.conf
+			- bin-path, socket 주석 처리
+			- "socket" => "/var/run/php/php8.2-fpm.sock",
+		- lighttpd-enable-mod fastcgi
+		- lighttpd-enable-mode fastcgi-php
+		- service lighttpd force-reload
+	- 설정 확인
+		- vi /etc/lighttpd/lighttpd.conf
+			- server.document-root = "/var/www/html"
+			- server.port =80
+	- 포트 설정
+		- ufw allow 80
+		- hostport 8080 / guestport 80 포트포워딩
+	- PHP 연동 확인
+		- vi /var/www/html/info.php
+		```php
+		<?php
+			phpinfo();
+		?>
+		```
