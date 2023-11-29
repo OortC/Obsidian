@@ -169,7 +169,7 @@
 	uname -a
 	
 	printf "#CPU physical : "
-	cat /proc/cpuinfo | grep physical id | wc -l
+	cat /proc/cpuinfo | grep "physical id" | wc -l
 	
 	printf "#vCPU : "
 	cat /proc/cpuinfo | grep processor | wc -l
