@@ -13,7 +13,18 @@
 		1. dpkg 기반, `apt`를 통해 패키지 관리
 		2. 커뮤니티 중심 개발 및 지원, 무료 및 오픈 소스 소프트웨어 프로젝트
 3. apt, aptitude 차이점
-4. AppArmor
+	- apt
+		- 주로 CLI를 사용하며, 간단하고 직관적인 명령어를 제공함
+		- 'apt' 명령어로 여러 기능이 통합되어 사용자 친화적인 인터페이스 제공
+		- 기본적인 의존성 해결을 수행하지만, 복잡한 상황에서는 약함
+	- aptitude
+		- 'apt'에 비해 더 복잡한 명령어 및 텍스트 기반의 사용자 인터페이스 제공
+		- 패키지 간의 의존성 해결이나 설치된 패키지의 상태를 시각적으로 파악하기 편리
+		- 패키지 간의 복잡한 의존성을 처리할 때 효과적
+		- 패키지를 제거할 때 해당 패키지에 의존하는 다른 패키지를 자동으로 제거하거나 대체
+	- 정리
+		- 'apt'는 기본적인 패키지 관리 작업에 충분함, 'aptitude'는 고급 사용자나 의존성 해결에 더 많은 제어를 원하는 경우 선택
+1. AppArmor
 	- 사용자와 프로세스의 보안을 강화하기 위한 LSM(Linux Security Module) 중 하나
 	- LSM은 리눅스 커널의 보안 기능을 확장하고 강화하는 모듈
 	- 어플리케이션의 행위를 제한하고 감시하는 데 중점을 둔 보안 도구
@@ -117,11 +128,17 @@
 	- PV(Physical Volume), VG(Volume Group), LV(Logical Volume)으로 구성
 - Bonus (8GB)
 	- `root, 2600MB`
+		- 리눅스 시스템에서 최상위 디렉토리, 시스템 파일 및 설정 파일 등이 저장
 	- `swap, 600MB`
+		- 가상 메모리의 일부로, 메모리가 부족할 때 데이터를 저장하는 용도로 사용
 	- `home, 1400MB`
+		- 사용자의 홈 디렉토리가 위치하는 곳, 각 사용자의 개인 파일 및 설정이 저장
 	- `var, 800MB`
+		- 시스템에서 자주 변하는 데이터를 저장하는 디렉토리로, 로그 파일, 데이터 베이스 파일, 웹서버 파일 등이 저장됨
 	- `srv, 800MB`
+		- 서비스 데이터를 저장하는 디렉토리로, 웹 서버나 FTP 서버와 같은 서비스 데이터가 저장됨
 	- `tmp, 800MB`
+		- 일시적인 파일을 저장하는 디렉토리로, 임시 파일 및 디렉토리가 여기에 생성됨
 	- `var-log, 1000MB`
 
 ---
@@ -254,6 +271,7 @@
 		- `lighttpd-enable-mod fastcgi`
 		- `lighttpd-enable-mode fastcgi-php`
 		- `service lighttpd force-reload`
+		- `systemctl restart lighttpd.service`
 	- 설정 확인
 		- `vi /etc/lighttpd/lighttpd.conf`
 			- `server.document-root = "/var/www/html"`
