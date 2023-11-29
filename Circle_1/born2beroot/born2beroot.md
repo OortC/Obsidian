@@ -289,7 +289,7 @@
 		- `vi /var/www/html/wordpress/wp-config-sample.php`
 			- `define( 'DB_*')`에 생성한 DB, 계정, 패스워드 입력
 			- `define( '*_key' )`에 아래 주소의 키 값을 복사 붙혀넣기
-				- https://api.wordpress.org/secret-key/1.1/salt/
+				- `https://api.wordpress.org/secret-key/1.1/salt/`
 		- `mv /var/www/html/wordpress/wp-config-sample.php /〃/wp-config.php`
 
 ---
