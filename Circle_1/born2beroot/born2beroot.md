@@ -275,7 +275,7 @@
 	- 설정 확인
 		- `vi /etc/lighttpd/lighttpd.conf`
 			- `server.document-root = "/var/www/html"`
-			- `server.port =80`
+			- `server.port = 80`
 	- 포트 설정
 		- `ufw allow 80`
 		- `hostport 8080` / `guestport 80` 포트포워딩
@@ -283,7 +283,7 @@
 		- `vi /var/www/html/info.php`
 		- `(host IP):8080` & `(host IP):8080/info.php `
 3. MariaDB
-	- 설치 : `apt-get -y install mariadb-server mariadb-clinet`
+	- 설치 : `apt-get -y install mariadb-server mariadb-client`
 	- DB 명령어
 		- `systemctl stop mysql.service // DB 중지`
 		- `systemctl start mysql.service // DB 시작`
