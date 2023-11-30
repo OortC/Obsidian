@@ -296,8 +296,8 @@
 		 - DB 생성 : `CREATE DATABASE [DB명];`
 		 - 계정 및 패스워드 설정 : `CREATE USER '[유저명]'@'localhost' IDENTIFIED BY '[패스워드]';`
 		 - 계정에 DB 권한 부여 : `GRANT ALL ON [DB명].* TO '[유저명]'@'localhost' IDENTIFIED BY '[패스워드]' WITH GRANT OPTION;`
-		 - 설정 마침 : `FLUSH PRIVILEGES`
-		 - 종료 : `EXIT`
+		 - 설정 마침 : `FLUSH PRIVILEGES;`
+		 - 종료 : `EXIT;`
 4. WordPress
 	- 설치
 		- `apt-get -y install wget`
