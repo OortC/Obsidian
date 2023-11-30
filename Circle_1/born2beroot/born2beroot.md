@@ -234,6 +234,9 @@
 	```
 - crontab 설정
 	- `*/10 * * * * bash monitoring.sh | wall`
+- cron 서비스 명령어
+	- `systemctl stop/start cron`
+	- `systemctl enable/disable cron`
 
 ---
 
