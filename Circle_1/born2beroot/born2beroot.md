@@ -314,13 +314,28 @@
 
 ### 12. vsftpd (FTP)
 1. FTP
-2. vsftpd
+	- FTP란?
+		- 파일 전송 프로토콜으로, 파일을 컴퓨터 네트워크 상에서 전송하기 위한 표준 네트워크 프로토콜
+		- 주로 서버와 클라이언트 간에 파일을 주고받을 때 사용됨
+		- FTP는 TCP/IP 프로토콜을 기반으로 하며, 데이터 전송 및 파일 관리를 위한 일련의 명령을 정의
+	 - 연결 방식
+		 - 제어 연결 (Control Connection)
+			 - 클라이언트와 서버 간에 명령 및 상태 정보를 전송하는데 사용
+			 - 이 연결은 클라이언트가 서버에 로그인하고 파일 전송 명령을 보내는 등의 제어 작업 처리
+		 - 데이터 연결 (Data Connection)
+			 - 실제 파일이나 디렉토리 내용과 같은 데이터를 전송하기 위해 사용됨
+			 - 데이터 연결은 클라이언트와 서버 간에 직접적으로 파일을 전송하는데 사용
+1. vsftpd
 	- 설치 및 설정
 		- `apt-get -y install vsftpd`
 		- `vi /etc/vsftpd.conf`
 			- `anonymous_enable=NO`
 			- `local_enable=YES`
 			- `chroot_local_user=NO`
-			- `pasv_enable=YES`
-			- `pasv_min_port=30000`
-			- `pasv_max_port=31000`
+		- `system restart vsftpd`
+		- `system enable vsftpd`
+		- `hostport (port) / guestport 21` 포트포워딩
+	- 실행
+		- `ftp (host IP) (Port)`
+		- `lcd (local_dir)`
+		- `put (local_file)`
