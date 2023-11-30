@@ -311,3 +311,16 @@
 		- `mv /var/www/html/wordpress/wp-config-sample.php /〃/wp-config.php`
 
 ---
+
+### 12. vsftpd (FTP)
+1. FTP
+2. vsftpd
+	- 설치 및 설정
+		- `apt-get -y install vsftpd`
+		- `vi /etc/vsftpd.conf`
+			- `anonymous_enable=NO`
+			- `local_enable=YES`
+			- `chroot_local_user=NO`
+			- `pasv_enable=YES`
+			- `pasv_min_port=30000`
+			- `pasv_max_port=31000`
