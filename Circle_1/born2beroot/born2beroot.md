@@ -83,6 +83,7 @@
 ### 4. hostname
 - 시스템 이름 확인 : `hostname`
 - 시스템 이름 변경 : `hostname [변경명]`
+- 호스트명 영구 변경 : `hostnamectl set-hostname [변경명]`
 - 호스트의 IP 주소 출력 : `hostname -I`
 
 ---
