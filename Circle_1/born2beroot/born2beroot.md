@@ -240,7 +240,7 @@
 	printf ")\n"
 	
 	printf "#Sudo : "
-	journalctl | grep sudo | grep COMMAND | wc -l | tr -d '\n'
+	journalctl | grep sudo | grep "session opened" | wc -l | tr -d '\n'
 	printf " cmd\n"
 	```
 - crontab 설정
