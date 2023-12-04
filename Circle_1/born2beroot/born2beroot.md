@@ -203,7 +203,7 @@
 	cat /proc/cpuinfo | grep "physical id" | wc -l
 	
 	printf "#vCPU : "
-	cat /proc/cpuinfo | grep processor | wc -l
+	nproc
 	
 	printf "#Memory Usage: "
 	free -m | grep Mem | awk '{printf "%d/%dMB (%.2f%%)\n", $3, $2, $3/$2 * 100}'
