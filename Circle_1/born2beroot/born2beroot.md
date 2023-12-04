@@ -236,7 +236,7 @@
 	hostname -I | tr -d '\n'
 	
 	printf "("
-	ip link | grep link/ether | awk '{printf $2}'
+	ip link | grep link/ether -m 1 | awk '{printf $2}'
 	printf ")\n"
 	
 	printf "#Sudo : "
