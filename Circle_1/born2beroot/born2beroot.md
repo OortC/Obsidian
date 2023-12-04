@@ -138,8 +138,8 @@
 - LVM이란?
 	- LVM(Logical Volume Manager), 리눅스에서 디스크 관리를 용이하게 하는 유틸리티
 	- LVM을 사용하면, 물리적인 디스크와 볼륨을 논리적인 단위로 나누고, 이를 필요에 따라 동적으로 조절할 수 있다.
-- 구성 요소 및 작동 방식
 	- PV(Physical Volume), VG(Volume Group), LV(Logical Volume)으로 구성
+	- 
 - Bonus (8GB)
 	- `root, 2600MB`
 		- 리눅스 시스템에서 최상위 디렉토리, 시스템 파일 및 설정 파일 등이 저장
