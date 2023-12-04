@@ -349,8 +349,8 @@
 			- `anonymous_enable=NO`
 			- `local_enable=YES`
 			- `chroot_local_user=NO`
-		- `system restart vsftpd`
-		- `system enable vsftpd`
+		- `systemctl restart vsftpd`
+		- `systemctl enable vsftpd`
 		- `hostport (port) / guestport 21` 포트포워딩
 	- 실행
 		- `ftp (host IP) (Port)`
