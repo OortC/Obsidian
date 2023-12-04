@@ -347,6 +347,7 @@
 		- `vi /etc/vsftpd.conf`
 			- `anonymous_enable=NO`
 			- `local_enable=YES`
+			- `write_enable=YES`
 			- `chroot_local_user=NO`
 		- `systemctl restart vsftpd`
 		- `systemctl enable vsftpd`
