@@ -139,4 +139,26 @@
 	- 스크립트 주기 변경 및 영구정지
 		- `systemctl disable cron`
 10. Bonus
-	
+	- lighttpd
+		- 가벼우면서 빠른 웹서버 소프트웨어
+		- 클라이언트로 부터 http 요청을 받아드리고, 웹 페이지를 제공하는 역활을 수행
+		- `vi /etc/lighttpd/conf-available/15-fastcgi-php.conf`
+			- 파일 내에서 PHP FastCGI 소켓 경로 설정
+		 - `lighttpd-enable-mod fastcgi`
+			 - Lighttpd가 FastCGI 프로토콜을 지원하도록 함
+		 - `lighttpd-enable-mod fastcgi-php`
+			 - Lighttpd가 PHP FastCGI를 사용하여 PHP 프로그램을 처리할 수 있도록 함
+	- php
+		- 서버 측에서 실행되는 프로그래밍 언어로, 주로 웹 개발에 사용됨
+		- 동적 웹 페이지를 생성하는데 특화되어 있으며, HTML에 삽입하여 사용할 수 있는 스크립트 언어
+	- mariaDB
+		- 관계형 데이터베이스 관리 시스템으로, MySQL을 기반으로 만들어진 오픈 소스 데이터베이스 서버
+		- `mysql -u root -p`
+	- WordPress
+		- 오픈소스 컨텐츠 관리 시스템. 웹사이트를 만들고 관리하는데 사용되며, 블로그, 온라인 상점 등 다양한 종류의 웹사이트를 쉽게 만들 수 있도록 설계되어 있음
+		- PHP와 MySQL 데이터베이스를 기반으로 함
+		- `vi /var/www/html/wordpress/wp-config.php`
+	- FTP
+		- 파일 전송 프로토콜 중 하나로써, 파일을 컴퓨터 네트워크 상에서 전송하기 위한 표준 네트워크 프로토콜
+		- 주로 서버와 클라이언트 간에 파일을 주고 받을 때 사용
+		- `vi /etc/vsftpd.conf`
