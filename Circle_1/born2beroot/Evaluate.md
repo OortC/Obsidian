@@ -88,21 +88,55 @@
 	- sudo 명령어 로그 확인
 		- `ls /var/log/sudo/...`
 		- `cat /var/log/sudo/../../log`
-1. UFW
+1. UFW (Uncomplicated Firewall)
 	- UFW 설치 및 동작 체크
-		- `apt-get list --installed | grep ufw`
+		- `apt search ufw`
 		- `ufw status` / `systemctl status ufw`
 	- UFW 설명 및 장점
-		- 
+		- 말 그대로, 리눅스에서 사용하는 간단한 방화벽 설정 도구 중 하나
+		- 주로 네트워크 보안을 강화하고, 외부에서의 액세스를 통제하기 위해 사용
+		- 특정 포트 및 IP 주소의 연결을 제어함으로써, 네트워크 트래픽으로부터 시스템을 보호
+		- 간단한 명령 및 사용법으로 사용자 친화적인 방법 제공
 	- UFW 규칙 나열
+		- `ufw status verbose`
 	- UFW 새로운 규칙 추가 및 제거
-2. SSH
+		- `ufw allow [포트]`
+		- `ufw deny [포트]`
+1. SSH
 	- SSH 설치 및 동작 체크
+		- `apt search openssh-server`
+		- `systemctl status ssh`
 	- SSH 설명 및 장점
+		- 원격 접속을 이용하여 터미널 환경을 안전하게 사용될 수 있도록 고안한 프로토콜
+		- 모든 통신을 암호화된 형태로 전송하기 때문에, 다른 원격 통신 프로토콜보다 안전함
 	- SSH 포트 확인
+		- `vi /etc/ssh/sshd-config`
 	- SSH 연결 확인
-3. Monitoring Script
+		- `ssh [유저명]@[IP주소] -p [포트]`
+1. Monitoring Script
 	- 스크립트 코드 확인
+		- `vi /root/monitoring.sh`
+			- `uname -a` : 현재 시스템의 정보를 출력하는 명령어, -a로 모든 시스템 정보 출력
+			- `cat /proc/cpuinfo` : 시스템에서 CPU 정보에 대한 다양한 세부사항 출력
+			- `nproc` : 현재 시스템에서 사용 가능한 프로세서의 수를 출력함
+			- `free -m` : 시스템의 메모리 사용 및 여유 공간에 대한 정보 출력
+			- `df -BM / -BG` : 시스템에서 디스크의 여유 공간 및 사용량에 대한 정보 제공
+			- `mpstat` : CPU 사용량을 모니터링하는 명령어, 프로세서의 사용률 및 부하에 대한 통계 제공
+			- `who` : 현재 시스템에 로그인한 사용자들에 대한 정보를 제공하는 명령어
+				- `-b` : 시스템의 최근 부팅 시간을 보여줌.
+			- `lsblk` : 블록 장치에 대한 정보를 보여주는 명령어, 주로 저장장치를 의미
+			- `ss` : 소켓 통계를 보여주는 명령어, 시스템에서 현재 활성화된 소켓 및 상태를 표시 
+				- `-t` : TCP 소켓에 대한 정보만 출력
+			- `hostname -I` : 시스템의 네트워크 인터페이스에 할당된 IP 주소를 출력
+			- `ip link` : 시스템에 연결된 네트워크 인터페이스의 정보를 제공하는 명령어
+			- `journalctl` : `systemd`의 로그 메세지를 조회하고 표시하는 명령어
 	- Cron이란?
+		- 일정한 간격으로 프로그램이나 스크립트를 자동으로 실행하기 위한 시간 기반 작업 스케쥴러
+		- 작업은 주기적으로 실행되며, 설정한 시간, 주기, 날짜에 맞추어 작업을 실행함
+		- 작업 설정은 crontabe 파일을 사용하여 정의함. 이 파일에 실행할 명령 라인과 실행 주기를 정의
 	- 스크립트 설정 확인 (Crontab)
+		- `crontab -e`
 	- 스크립트 주기 변경 및 영구정지
+		- `systemctl disable cron`
+10. Bonus
+	
