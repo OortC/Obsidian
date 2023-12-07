@@ -32,34 +32,53 @@
 		- `systemctl status ufw`
 		- `systemctl status ssh`
 	- OS 확인
-2. 사용자
+		- `uname -a`
+1. 사용자
 	- 유저 그룹 확인
+		- `id [유저명]`
 	- 새로운 유저 생성 및 비밀번호 설정
+		- `useradd [유저명]`
+		- `passwd [유저명]`
 	- 비밀번호 정책 파일 확인
+		- `vi /etc/login.defs`
+		- `vi /etc/pam.d/common-password`
+		- `chage -l [유저명]`
 	- 새로운 그룹 생성 및 할당
-	- 비밀번호 정책의 장점
-3. 호스트 및 파티션
+		- `groupadd [그룹명]`
+		- `usermod -aG [그룹명] [유저명]`
+	- 비밀번호 정책의 장점 및 단점
+		- 장점
+			- 일반적인 패스워드에 비해 보안 강화
+			- 보안 강화에 따른 안전한 계정 관리 용이
+		- 단점
+			- 사용자의 계정 관리 편의성 저하
+			- 편의성 저하에 따른 관리 부주의 가능성 증가
+1. 호스트 및 파티션
 	- 호스트명 체크
+		- `hostname`
 	- 호스트명 영구변경 후 복원
+		- `hostnamectl set-hostname [변경명]`
 	- 가상머신의 파티션 체크
+		- `lsblk`
 	- LVM 설명 및 동작방식 설명
-4. SUDO
+		- 
+1. SUDO
 	- sudo 설치 확인
 	- sudo 그룹 할당
 	- sudo의 가치 및 동작 확인
 	- sudo 규칙 파일 확인
 	- sudo 명령어 로그 확인
-5. UFW
+2. UFW
 	- UFW 설치 및 동작 체크
 	- UFW 설명 및 장점
 	- UFW 규칙 나열
 	- UFW 새로운 규칙 추가 및 제거
-6. SSH
+3. SSH
 	- SSH 설치 및 동작 체크
 	- SSH 설명 및 장점
 	- SSH 포트 확인
 	- SSH 연결 확인
-7. Monitoring Script
+4. Monitoring Script
 	- 스크립트 코드 확인
 	- Cron이란?
 	- 스크립트 설정 확인 (Crontab)
