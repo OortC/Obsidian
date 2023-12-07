@@ -60,12 +60,23 @@
 		- `hostnamectl set-hostname [변경명]`
 	- 가상머신의 파티션 체크
 		- `lsblk`
-	- LVM 설명 및 동작방식 설명
-		- 
+	- LVM
+		- LVM란?
+			- `Logical Volume`을 효율적이고 유연하게 관리하기 위한 커널의 한 부분이자 프로그램
+			- 직접 물리 스토리지를 사용하는 것보다 다양한 측면에서 유연성을 제공
+			- 유연한 용량 및 크기 조정 가능, 편의에 따른 장치 이름 지정 등
+		- 동작 방식
+			- 블록 장치 전체 또는 파티션들을 LVM에서 사용할 수 있게 PV로 초기화하여 변환.
+			- PV는 4MB의 기본 크기를 가진 PE로 구성되어 있음.
+			- PV들로 초기화된 장치들을 VG로 통합. VG 안의 공간을 쪼개어 LV로 만들 수 있음
+			- LV는 사용자가 최종적으로 다루는 논리적 스토리지. LV를 구성하는 LE는 PE와 1대1로 맵핑됨 
 1. SUDO
 	- sudo 설치 확인
+		- `apt-get list --installed | grep sudo`
 	- sudo 그룹 할당
+		- `usermod -aG sudo [유저명]`
 	- sudo의 가치 및 동작 확인
+		- 
 	- sudo 규칙 파일 확인
 	- sudo 명령어 로그 확인
 2. UFW
