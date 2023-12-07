@@ -76,20 +76,31 @@
 	- sudo 그룹 할당
 		- `usermod -aG sudo [유저명]`
 	- sudo의 가치 및 동작 확인
-		- 
+		- 사용자의 특정 명령을 관리자 권한으로 실행할 수 있게 만드는 도구
+		- 보안 및 권한 관리를 위해 사용되며, 일반 사용자가 시스템의 핵심 부분에 접근하지 못하게 함
+		- 모든 사용자에게 관리자 권한을 부여하는 것은 위험하게 때문에, 이를 통해 일부 사용자에게만 필요한 작업을 수행할 권한을 부여함으로써, 시스템의 보안을 강화.
+		- 불필요한 권한 부여를 줄이고, 보안 문제를 최소화 할 수 있도록 도와줌
 	- sudo 규칙 파일 확인
+		- `visudo`
+		- TTY (TeleTypeWriter)
+			- 
 	- sudo 명령어 로그 확인
-2. UFW
+		- `ls /var/log/sudo/...`
+		- `cat /var/log/sudo/../../log`
+1. UFW
 	- UFW 설치 및 동작 체크
+		- `apt-get list --installed | grep ufw`
+		- `ufw status` / `systemctl status ufw`
 	- UFW 설명 및 장점
+		- 
 	- UFW 규칙 나열
 	- UFW 새로운 규칙 추가 및 제거
-3. SSH
+2. SSH
 	- SSH 설치 및 동작 체크
 	- SSH 설명 및 장점
 	- SSH 포트 확인
 	- SSH 연결 확인
-4. Monitoring Script
+3. Monitoring Script
 	- 스크립트 코드 확인
 	- Cron이란?
 	- 스크립트 설정 확인 (Crontab)
