@@ -27,13 +27,15 @@
 		- 특정 어플리케이션 및 프로세스의 시스템 리소스 접근 방식을 제한함으로써 시스템 보안 강화
 		- 프로파일이라는 규칙 세트를 통해 응용 프로그램의 동작을 제한
 		- 프로파일에는 어떤 파일, 디렉토리, 네트워크 리소스에 접근 가능한지 명시
-2. 기본 설정
+	- Graphical Environment
+		- echo $DISPLAY
+1. 기본 설정
 	- UFW, SSH 서비스 확인
 		- `systemctl status ufw`
 		- `systemctl status ssh`
 	- OS 확인
 		- `uname -a`
-3. 사용자
+2. 사용자
 	- 유저 그룹 확인
 		- `id [유저명]`
 	- 새로운 유저 생성 및 비밀번호 설정
@@ -53,7 +55,7 @@
 		- 단점
 			- 사용자의 계정 관리 편의성 저하
 			- 편의성 저하에 따른 관리 부주의 가능성 증가
-4. 호스트 및 파티션
+3. 호스트 및 파티션
 	- 호스트명 체크
 		- `hostname`
 	- 호스트명 영구변경 후 복원
@@ -70,7 +72,7 @@
 			- PV는 4MB의 기본 크기를 가진 PE로 구성되어 있음.
 			- PV들로 초기화된 장치들을 VG로 통합. VG 안의 공간을 쪼개어 LV로 만들 수 있음
 			- LV는 사용자가 최종적으로 다루는 논리적 스토리지. LV를 구성하는 LE는 PE와 1대1로 맵핑됨 
-5. SUDO
+4. SUDO
 	- sudo 설치 확인
 		- `apt-get list --installed | grep sudo`
 	- sudo 그룹 할당
@@ -88,7 +90,7 @@
 	- sudo 명령어 로그 확인
 		- `ls /var/log/sudo/...`
 		- `cat /var/log/sudo/../../log`
-6. UFW (Uncomplicated Firewall)
+5. UFW (Uncomplicated Firewall)
 	- UFW 설치 및 동작 체크
 		- `apt search ufw`
 		- `ufw status` / `systemctl status ufw`
@@ -102,7 +104,7 @@
 	- UFW 새로운 규칙 추가 및 제거
 		- `ufw allow [포트]`
 		- `ufw deny [포트]`
-7. SSH
+6. SSH
 	- SSH 설치 및 동작 체크
 		- `apt search openssh-server`
 		- `systemctl status ssh`
@@ -113,7 +115,7 @@
 		- `vi /etc/ssh/sshd-config`
 	- SSH 연결 확인
 		- `ssh [유저명]@[IP주소] -p [포트]`
-8. Monitoring Script
+7. Monitoring Script
 	- 스크립트 코드 확인
 		- `vi /root/monitoring.sh`
 			- `uname -a` : 현재 시스템의 정보를 출력하는 명령어, -a로 모든 시스템 정보 출력
@@ -138,7 +140,7 @@
 		- `crontab -e`
 	- 스크립트 주기 변경 및 영구정지
 		- `systemctl disable cron`
-9. Bonus
+8. Bonus
 	- lighttpd
 		- 가벼우면서 빠른 웹서버 소프트웨어
 		- 클라이언트로 부터 http 요청을 받아드리고, 웹 페이지를 제공하는 역활을 수행
@@ -164,3 +166,4 @@
 		- 21번 포트를 통해 클라이언트와 서버를 연결하고, 연결되면 제어 명령을 이를 통해 주고 받음. 사용자 인증, 명령 전송, 디렉토리 탐색 등 파일 전송에 관련된 명령어를 여기서 처리함
 		- 20번 포트를 통해 파일이나 디렉터리 같은 실제 데이터를 전송하는데 사용함.
 		- `vi /etc/vsftpd.conf`
+		- 서비스인지 확인하는 법
