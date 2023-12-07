@@ -83,7 +83,8 @@
 	- sudo 규칙 파일 확인
 		- `visudo`
 		- TTY (TeleTypeWriter)
-			- 
+			- 리눅스 시스템에서 현재 로그인한 콘솔이나 터미널을 뜻함
+			- tty를 활성화 시켜줌으로써, sudo 명령어를 어느 터미널에서 사용했는지 확인
 	- sudo 명령어 로그 확인
 		- `ls /var/log/sudo/...`
 		- `cat /var/log/sudo/../../log`
