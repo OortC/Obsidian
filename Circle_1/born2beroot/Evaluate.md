@@ -34,7 +34,7 @@
 		- `systemctl status ufw`
 		- `systemctl status ssh`
 	- OS 확인
-		- `uname -a` / `lsb_release -a`
+		- `uname -a` / `lsb_release -a` / `hostnamectl`
 3. 사용자
 	- 유저 그룹 확인
 		- `id [유저명]`
