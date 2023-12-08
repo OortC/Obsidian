@@ -34,8 +34,8 @@
 		- `systemctl status ufw`
 		- `systemctl status ssh`
 	- OS 확인
-		- `uname -a`
-2. 사용자
+		- `uname -a` / `lsb_release -a`
+1. 사용자
 	- 유저 그룹 확인
 		- `id [유저명]`
 	- 새로운 유저 생성 및 비밀번호 설정
@@ -55,7 +55,7 @@
 		- 단점
 			- 사용자의 계정 관리 편의성 저하
 			- 편의성 저하에 따른 관리 부주의 가능성 증가
-3. 호스트 및 파티션
+2. 호스트 및 파티션
 	- 호스트명 체크
 		- `hostname`
 	- 호스트명 영구변경 후 복원
@@ -72,7 +72,7 @@
 			- PV는 4MB의 기본 크기를 가진 PE로 구성되어 있음.
 			- PV들로 초기화된 장치들을 VG로 통합. VG 안의 공간을 쪼개어 LV로 만들 수 있음
 			- LV는 사용자가 최종적으로 다루는 논리적 스토리지. LV를 구성하는 LE는 PE와 1대1로 맵핑됨 
-4. SUDO
+3. SUDO
 	- sudo 설치 확인
 		- `apt-get list --installed | grep sudo`
 	- sudo 그룹 할당
@@ -90,7 +90,7 @@
 	- sudo 명령어 로그 확인
 		- `ls /var/log/sudo/...`
 		- `cat /var/log/sudo/../../log`
-5. UFW (Uncomplicated Firewall)
+4. UFW (Uncomplicated Firewall)
 	- UFW 설치 및 동작 체크
 		- `apt search ufw`
 		- `ufw status` / `systemctl status ufw`
@@ -104,7 +104,7 @@
 	- UFW 새로운 규칙 추가 및 제거
 		- `ufw allow [포트]`
 		- `ufw deny [포트]`
-6. SSH
+5. SSH
 	- SSH 설치 및 동작 체크
 		- `apt search openssh-server`
 		- `systemctl status ssh`
@@ -115,7 +115,7 @@
 		- `vi /etc/ssh/sshd-config`
 	- SSH 연결 확인
 		- `ssh [유저명]@[IP주소] -p [포트]`
-7. Monitoring Script
+6. Monitoring Script
 	- 스크립트 코드 확인
 		- `vi /root/monitoring.sh`
 			- `uname -a` : 현재 시스템의 정보를 출력하는 명령어, -a로 모든 시스템 정보 출력
@@ -140,7 +140,7 @@
 		- `crontab -e`
 	- 스크립트 주기 변경 및 영구정지
 		- `systemctl disable cron`
-8. Bonus
+7. Bonus
 	- lighttpd
 		- 가벼우면서 빠른 웹서버 소프트웨어
 		- 클라이언트로 부터 http 요청을 받아드리고, 웹 페이지를 제공하는 역활을 수행
