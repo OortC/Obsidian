@@ -3,8 +3,10 @@
 		1. Quick Sort
 		2. Merge Sort
 		3. Radix Sort
-	2. Greedy
+	2. Heuristic Algorithm
+		1. Greedy
 	3. Brute Force
-3. Data Structure
+2. Data Structure
 	1. Double Linked List
-	2. Queue / Deque
+	2. Stack
+	3. Queue / Deque
